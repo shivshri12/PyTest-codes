@@ -86,23 +86,23 @@ def test_account_creation(setup):
         driver.find_element(By.ID,'FieldTitleUf4').send_keys(acf4)
         driver.find_element(By.ID,'FieldTitleUf5').send_keys(acf5)
         driver.find_element(By.ID,'FieldTitleUf8').send_keys(acf8)
-        time.sleep(3)
+        time.sleep(10)
         driver.find_element(By.ID,'addRow_1').click()
-        time.sleep(3)
+        time.sleep(10)
         Select(driver.find_element(By.ID,'ddlIDType')).select_by_visible_text(idtype)
         Select(driver.find_element(By.ID,'ddlIDName')).select_by_visible_text(idname)
         driver.find_element(By.ID,'txtIDNumber').send_keys(idnumber)
         driver.find_element(By.ID,'btnSubmitPopUpID').click()
-        time.sleep(3)
+        time.sleep(10)
 
         driver.find_element(By.NAME,'ctl00$CPMain$chkVerify').click()
         driver.find_element(By.ID,'ctl00_CPMain_ddlWallet').send_keys('Australian Dollar')
-        time.sleep(3)
+        time.sleep(10)
         driver.find_element(By.ID,'ctl00_CPMain_txtLoadAmount').send_keys('500.00')
         driver.find_element(By.ID,'ctl00_CPMain_btnAdd').click()
-        time.sleep(5)
+        time.sleep(10)
         driver.find_element(By.ID,'btnSubmit').click()
-        time.sleep(7)
+        time.sleep(10)
 
         result = driver.find_element(By.ID,'ctl00_CPMain_idAcctext1').is_displayed()
 
@@ -117,6 +117,7 @@ def test_account_creation(setup):
         allure.attach(driver.get_screenshot_as_png(),name='screenshot',attachment_type=AttachmentType.PNG)
 
         driver.find_element(By.ID,'btnNewCard').click()
+
 
 
 
