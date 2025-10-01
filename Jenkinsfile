@@ -22,17 +22,17 @@ pipeline {
         }
 
         stage('Allure Report') {
-            steps {
+           steps {
                 allure([
                     includeProperties: false,
                     results: [[path: 'allure-results']],
-                    reportBuildPolicy: 'ALWAYS',
-                    tool: 'Allure'   // Jenkins me configured name
+                    reportBuildPolicy: 'ALWAYS'
                 ])
             }
         }
     }
 }
+
 
 
 
