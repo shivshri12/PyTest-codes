@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/shivshri12/PyTest-codes.git'
+            }
+        }
+
+        stage('Setup Python') {
+            steps {
+                // Make sure Python is installed on Jenkins node
+                bat 'python -m venv venv'
+                bat '. venv/bin/activate && pip install -r requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat '. venv/bin/activate && pytest test_InstantIssue.py --alluredir=allure-results'
+            }
+        }
+
+        stage('Allure Report') {
+            steps {
+                allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            }
+        }
+    }
+}
