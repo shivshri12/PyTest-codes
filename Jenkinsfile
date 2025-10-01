@@ -17,7 +17,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'pytest test_InstantIssue.py --alluredir=allure-results'
+                bat 'python -m pytest test_InstantIssue.py --alluredir=allure-results'
             }
         }
 
@@ -28,6 +28,7 @@ pipeline {
         }
     }
 }
+
 
 
 
