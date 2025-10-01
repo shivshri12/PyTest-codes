@@ -11,9 +11,9 @@ pipeline {
         stage('Setup Python') {
             steps {
                 // Make sure Python is installed on Jenkins node
-                bat 'cd /d C:\\Users\\shivendra.shrivastav\\PycharmProjects\\PythonProject'
+                bat 'cd /d C:\Users\shivendra.shrivastav\PycharmProjects\PythonProject'
                 // Activate venv (important step)
-                bat .venv\\Scripts\\activate
+                bat .venv\Scripts\activate
             }
         }
 
@@ -30,6 +30,7 @@ pipeline {
         }
     }
 }
+
 
 
 
