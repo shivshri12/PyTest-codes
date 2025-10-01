@@ -16,6 +16,7 @@ def setup():
     chrome_options = Options()
     chrome_options.add_argument("--start-maximized")  # open browser in maximized mode
     chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--remote-debugging-port=9222")
     driver = webdriver.Chrome()
     driver = webdriver.Chrome(options=chrome_options)
     driver.maximize_window()
@@ -116,6 +117,7 @@ def test_account_creation(setup):
         allure.attach(driver.get_screenshot_as_png(),name='screenshot',attachment_type=AttachmentType.PNG)
 
         driver.find_element(By.ID,'btnNewCard').click()
+
 
 
 
