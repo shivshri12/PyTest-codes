@@ -12,7 +12,11 @@ file = r"C:\Users\shivendra.shrivastav\Downloads\Test_Data1.xlsx"
 @pytest.fixture
 @allure.severity(allure.severity_level.NORMAL)
 def setup():
+    chrome_options = Options()
+    chrome_options.add_argument("--start-maximized")  # open browser in maximized mode
+    chrome_options.add_argument("--disable-gpu")
     driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=chrome_options)
     driver.maximize_window()
     driver.implicitly_wait(10)
     yield driver
@@ -109,4 +113,5 @@ def test_account_creation(setup):
 
         assert result == True   # pytest ko pass/fail batane ke liye
         allure.attach(driver.get_screenshot_as_png(),name='screenshot',attachment_type=AttachmentType.PNG)
+
         driver.find_element(By.ID,'btnNewCard').click()
