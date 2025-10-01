@@ -3,6 +3,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.chrome.options import Options
 import Helper
 import allure
 from allure_commons.types import AttachmentType
@@ -115,4 +116,5 @@ def test_account_creation(setup):
         allure.attach(driver.get_screenshot_as_png(),name='screenshot',attachment_type=AttachmentType.PNG)
 
         driver.find_element(By.ID,'btnNewCard').click()
+
 
