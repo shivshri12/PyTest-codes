@@ -12,7 +12,7 @@ pipeline {
             steps {
                 // Make sure Python is installed on Jenkins node
                 bat 'python -m venv venv'
-                bat '.venv\Scripts\activate'
+                bat '.venv\\Scripts\\activate'
             }
         }
 
@@ -29,4 +29,5 @@ pipeline {
         }
     }
 }
+
 
