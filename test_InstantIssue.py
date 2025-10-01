@@ -79,6 +79,7 @@ def test_account_creation(setup):
         driver.find_element(By.ID,'ctl00_CPMain_txtCity').send_keys(city)
         driver.find_element(By.ID,'txtZipcode1').send_keys(postal)
         driver.find_element(By.ID,'ctl00_CPMain_ddlState').send_keys(state)
+        time.sleep(10)
         driver.find_element(By.ID,'ctl00_CPMain_txtEmail').send_keys(email)
         driver.find_element(By.ID,'txtDob').send_keys(dob)
         driver.find_element(By.ID,'ctl00_CPMain_txtMobNo2').send_keys(phone)
@@ -117,6 +118,7 @@ def test_account_creation(setup):
         allure.attach(driver.get_screenshot_as_png(),name='screenshot',attachment_type=AttachmentType.PNG)
 
         driver.find_element(By.ID,'btnNewCard').click()
+
 
 
 
