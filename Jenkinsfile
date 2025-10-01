@@ -12,13 +12,13 @@ pipeline {
             steps {
                 // Make sure Python is installed on Jenkins node
                 bat 'python -m venv venv'
-                bat '. venv/bin/activate && pip install -r requirements.txt'
+                bat '.venv\Scripts\activate'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat '. venv/bin/activate && pytest test_InstantIssue.py --alluredir=allure-results'
+                bat 'pytest test_InstantIssue.py --alluredir=allure-results'
             }
         }
 
@@ -29,3 +29,4 @@ pipeline {
         }
     }
 }
+
